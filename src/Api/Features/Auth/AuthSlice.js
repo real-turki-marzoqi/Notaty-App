@@ -45,6 +45,16 @@ const authSlice = createSlice({
       state.resetPasswordStatus = "idle";
       state.resetPasswordError = null;
     },
+    resetAllStatusesAndErrors: (state) => {
+      state.status = "idle";
+      state.error = null;
+      state.forgotPasswordStatus = "idle";
+      state.forgotPasswordError = null;
+      state.verifyResetCodeStatus = "idle";
+      state.verifyResetCodeError = null;
+      state.resetPasswordStatus = "idle";
+      state.resetPasswordError = null;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -121,5 +131,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { logout, resetVerifyResetCodeStatus, resetResetPasswordStatus } = authSlice.actions;
+export const { logout, resetVerifyResetCodeStatus, resetResetPasswordStatus, resetAllStatusesAndErrors } = authSlice.actions;
 export default authSlice.reducer;

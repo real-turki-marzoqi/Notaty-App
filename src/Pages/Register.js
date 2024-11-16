@@ -11,6 +11,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import Loader from "../Components/utils/Loader";
+import { resetAllStatusesAndErrors } from "../Api/Features/Auth/AuthSlice";
 
 const Register = () => {
   const userInfo = useSelector(selectUserInfo);
@@ -40,8 +41,12 @@ const Register = () => {
   };
 
   useEffect(() => {
+    // Reset statuses and errors when the component is mounted
+    dispatch(resetAllStatusesAndErrors());
+
     if (status === "succeeded" && userInfo) {
       toast.success("Registration successful!");
+      dispatch(resetAllStatusesAndErrors());
       navigate("/login");
     }
 
@@ -49,8 +54,9 @@ const Register = () => {
       error.forEach((err) => {
         toast.error(`${err.msg}`);
       });
+      dispatch(resetAllStatusesAndErrors());
     }
-  }, [status, userInfo, error]);
+  }, [status, userInfo, error, dispatch, navigate]);
 
   return (
     <Container fluid style={{ padding: 0 }}>
