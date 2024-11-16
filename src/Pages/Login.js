@@ -37,7 +37,7 @@ const Login = () => {
   useEffect(() => {
     if (status === "succeeded" ) {
      
-      navigate("/home");
+      navigate("/");
     }
     if (status === "failed" && error) {
       error.forEach((err) => {
