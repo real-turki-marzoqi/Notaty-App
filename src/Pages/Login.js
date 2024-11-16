@@ -36,8 +36,8 @@ const Login = () => {
 
   useEffect(() => {
     if (status === "succeeded" ) {
-     
-      navigate("/");
+      toast.success("Login successful!");
+      navigate("/home");
     }
     if (status === "failed" && error) {
       error.forEach((err) => {
