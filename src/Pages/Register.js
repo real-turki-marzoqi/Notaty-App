@@ -42,7 +42,7 @@ const Register = () => {
   useEffect(() => {
     if (status === "succeeded" && userInfo) {
       toast.success("Registration successful!");
-      navigate("/login");
+      navigate("/home");
     }
 
     if (status === "failed" && error) {
