@@ -1,13 +1,1327 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* تعيين خط Roboto كخط رئيسي */
+* {
+  font-family: "Roboto", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* تخصيصات مختلفة لأوزان وأشكال خط Roboto */
+.roboto-thin {
+  font-weight: 100;
+  font-style: normal;
+}
+
+.roboto-light {
+  font-weight: 300;
+  font-style: normal;
+}
+
+.roboto-regular {
+  font-weight: 400;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-weight: 700;
+  font-style: normal;
+}
+
+.roboto-black {
+  font-weight: 900;
+  font-style: normal;
+}
+
+.roboto-thin-italic {
+  font-weight: 100;
+  font-style: italic;
+}
+
+.roboto-light-italic {
+  font-weight: 300;
+  font-style: italic;
+}
+
+.roboto-regular-italic {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.roboto-medium-italic {
+  font-weight: 500;
+  font-style: italic;
+}
+
+.roboto-bold-italic {
+  font-weight: 700;
+  font-style: italic;
+}
+
+.roboto-black-italic {
+  font-weight: 900;
+  font-style: italic;
+}
+
+/* مثال لاستخدام خط مختلف مثل Montserrat */
+.montserrat-unique {
+  font-family: "Montserrat", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* ========== الألوان والمتغيرات العامة ========== */
+:root {
+  --text-color: #295f98;
+  --background-color: #fbfbfb;
+  --border-color: #7E60BF;
+  
+}
+
+/* ========== إعدادات عامة ========== */
+.home {
+  background-image: radial-gradient(#7e60bf 0.5px, transparent 0.5px), radial-gradient(#7e60bf 0.5px, transparent 0.5px);
+  background-size: 10px 10px;
+  background-position: 0 0, 5px 5px;
+  background-color: #fbfbfb;
+min-height: 100vh;
+}
+
+/* ========== تصميم شريط التنقل (Navbar) ========== */
+.navBar {
+  background-color: var(--background-color);
+  border-bottom: solid 1px black;
+  padding: 10px 0;
+}
+
+.logoCol {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+
+.navBarCols {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  color: var(--text-color);
+}
+
+.navbar-logo {
+  height: 50px;
+}
+
+.username-text {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.logo-drop-down {
+  border: solid 1px var(--text-color);
+  border-radius: 5px;
+  color: var(--text-color) !important;
+  margin-left: 10px;
+}
+
+.logo-setting-icon {
+  color: var(--text-color);
+}
+
+/* ========== استجابة شريط التنقل للشاشات ========== */
+@media (max-width: 576px) {
+  .navBar {
+    padding: 5px 0;
+  }
+
+  .navbar-logo {
+    height: 40px;
+  }
+
+  .username-text {
+    font-size: 0.9rem;
+  }
+
+  .logo-drop-down {
+    font-size: 0.9rem;
+  }
+
+  .navBarCols {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .navbar-logo {
+    height: 60px;
+  }
+
+  .username-text {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .navbar-logo {
+    height: 80px;
+  }
+
+  .username-text {
+    font-size: 1.2rem;
+  }
+}
+
+/* ========== تصميم الحاوية الخاصة بالملاحظات (Note Container) ========== */
+.note-Container {
+  padding: 20px;
+  border: solid 5px var(--border-color);
+  border-radius: 70px;
+  margin-top: 20px;
+  background-color: var(--background-color);
+}
+
+/* ========== تصميم بطاقة الملاحظات (Note profile-card) ========== */
+.NoteCard {
+  border: solid 2px var(--border-color);
+  margin-bottom: 10px;
+  border-radius: 20px;
+  padding: 15px;
+}
+
+.note-Icon-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  color: var(--border-color);
+  border-bottom: solid black 1px;
+  padding: 2%;
+}
+
+.note-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 70%;
+  width: 35px;
+  height: 35px;
+}
+
+/* ========== تصميم عنوان الملاحظة (Note Title) ========== */
+.note-title {
+  background-color: #7e60bf29;
+  height: 5vh;
+  border-bottom: 1px solid black;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
+.note-title:hover {
+  overflow-x: auto;
+  text-overflow: unset;
+}
+
+.note-title::-webkit-scrollbar {
+  height: 4px;
+}
+
+.note-title::-webkit-scrollbar-thumb {
+  background-color: #295f98;
+  border-radius: 2px;
+}
+
+/* ========== تصميم زر التبديل (Toggle button) ========== */
+.toggle-btn {
+  color: #11e1b4;
+}
+
+/* ========== استجابة تصميم بطاقة الملاحظات للشاشات ========== */
+@media (max-width: 576px) {
+  .note-Container {
+    padding: 15px;
+  }
+
+  .NoteCard {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+
+  .note-icon {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .NoteCard {
+    font-size: 1em;
+    margin-bottom: 15px;
+  }
+
+  .note-icon {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+/* Welcome page start  */
+.glitch-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(240, 239, 239, 0);
+}
+
+.glitch {
+  position: relative;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #7E60BF;
+  letter-spacing: 5px;
+  animation: shift 4s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+.glitch:before {
+  content: attr(data-glitch);
+  position: absolute;
+  top: 0;
+  left: -2px;
+  text-shadow: -1px 0 #ddeaea;
+  width: 100%;
+  color: #d89ae3;
+  background-color: rgba(240, 239, 239, 0);
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-before 3s infinite linear alternate-reverse;
+}
+
+.glitch:after {
+  content: attr(data-glitch);
+  position: absolute;
+  top: 0;
+  left: 2px;
+  text-shadow: 1px 0 #f1f9f1;
+  width: 100%;
+  color: #3c293f;
+  background-color: rgba(240, 239, 239, 0);
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-after 2s infinite linear alternate-reverse;
+}
+
+
+@keyframes noise-before {
+  0% {
+     clip: rect(61px, 9999px, 52px, 0);
+  }
+
+  5% {
+     clip: rect(33px, 9999px, 144px, 0);
+  }
+
+  10% {
+     clip: rect(121px, 9999px, 115px, 0);
+  }
+
+  15% {
+     clip: rect(144px, 9999px, 162px, 0);
+  }
+
+  20% {
+     clip: rect(62px, 9999px, 180px, 0);
+  }
+
+  25% {
+     clip: rect(34px, 9999px, 42px, 0);
+  }
+
+  30% {
+     clip: rect(147px, 9999px, 179px, 0);
+  }
+
+  35% {
+     clip: rect(99px, 9999px, 63px, 0);
+  }
+
+  40% {
+     clip: rect(188px, 9999px, 122px, 0);
+  }
+
+  45% {
+     clip: rect(154px, 9999px, 14px, 0);
+  }
+
+  50% {
+     clip: rect(63px, 9999px, 37px, 0);
+  }
+
+  55% {
+     clip: rect(161px, 9999px, 147px, 0);
+  }
+
+  60% {
+     clip: rect(109px, 9999px, 175px, 0);
+  }
+
+  65% {
+     clip: rect(157px, 9999px, 88px, 0);
+  }
+
+  70% {
+     clip: rect(173px, 9999px, 131px, 0);
+  }
+
+  75% {
+     clip: rect(62px, 9999px, 70px, 0);
+  }
+
+  80% {
+     clip: rect(24px, 9999px, 153px, 0);
+  }
+
+  85% {
+     clip: rect(138px, 9999px, 40px, 0);
+  }
+
+  90% {
+     clip: rect(79px, 9999px, 136px, 0);
+  }
+
+  95% {
+     clip: rect(25px, 9999px, 34px, 0);
+  }
+
+  100% {
+     clip: rect(173px, 9999px, 166px, 0);
+  }
+}
+
+@keyframes noise-after {
+  0% {
+     clip: rect(26px, 9999px, 33px, 0);
+  }
+
+  5% {
+     clip: rect(140px, 9999px, 198px, 0);
+  }
+
+  10% {
+     clip: rect(184px, 9999px, 89px, 0);
+  }
+
+  15% {
+     clip: rect(121px, 9999px, 6px, 0);
+  }
+
+  20% {
+     clip: rect(181px, 9999px, 99px, 0);
+  }
+
+  25% {
+     clip: rect(154px, 9999px, 133px, 0);
+  }
+
+  30% {
+     clip: rect(134px, 9999px, 169px, 0);
+  }
+
+  35% {
+     clip: rect(26px, 9999px, 187px, 0);
+  }
+
+  40% {
+     clip: rect(147px, 9999px, 137px, 0);
+  }
+
+  45% {
+     clip: rect(31px, 9999px, 52px, 0);
+  }
+
+  50% {
+     clip: rect(191px, 9999px, 109px, 0);
+  }
+
+  55% {
+     clip: rect(74px, 9999px, 54px, 0);
+  }
+
+  60% {
+     clip: rect(145px, 9999px, 75px, 0);
+  }
+
+  65% {
+     clip: rect(153px, 9999px, 198px, 0);
+  }
+
+  70% {
+     clip: rect(99px, 9999px, 136px, 0);
+  }
+
+  75% {
+     clip: rect(118px, 9999px, 192px, 0);
+  }
+
+  80% {
+     clip: rect(1px, 9999px, 83px, 0);
+  }
+
+  85% {
+     clip: rect(145px, 9999px, 98px, 0);
+  }
+
+  90% {
+     clip: rect(121px, 9999px, 154px, 0);
+  }
+
+  95% {
+     clip: rect(156px, 9999px, 44px, 0);
+  }
+
+  100% {
+     clip: rect(67px, 9999px, 122px, 0);
+  }
+}
+
+@keyframes shift {
+  0%, 40%, 44%, 58%, 61%, 65%, 69%, 73%, 100% {
+     transform: skewX(0deg);
+  }
+
+  41% {
+     transform: skewX(10deg);
+  }
+
+  42% {
+     transform: skewX(-10deg);
+  }
+
+  59% {
+     transform: skewX(40deg) skewY(10deg);
+  }
+
+  60% {
+     transform: skewX(-40deg) skewY(-10deg);
+  }
+
+  63% {
+     transform: skewX(10deg) skewY(-5deg);
+  }
+
+  70% {
+     transform: skewX(-50deg) skewY(-20deg);
+  }
+
+  71% {
+     transform: skewX(10deg) skewY(-10deg);
+  }
+}
+
+.responsive-image {
+  max-width: 80%;
+  height: auto;
+  width: 20vw;
+}
+
+@media (max-width: 768px) {
+  .responsive-image {
+    width: 50vw; /* زيادة حجم الصورة على الشاشات الصغيرة */
+  }
+}
+
+@media (max-width: 576px) {
+  .responsive-image {
+    width: 70vw; /* جعل الصورة أكبر للشاشات الصغيرة جدًا */
+  }
+}
+.welcom-login{
+
+  background:  linear-gradient(45deg,#0000 calc(25%/3), #eeeeee 0 calc(50%/3),
+  #0000 0 calc(250%/3), #eeeeee 0 calc(275%/3),
+  #0000 0),linear-gradient( 45deg,#eeeeee calc(25%/3), #0000 0 calc(50%/3),
+  #eeeeee 0 25%, #0000 0 75%,
+  #eeeeee 0 calc(250%/3), #0000 0 calc(275%/3),
+  #eeeeee 0),
+  linear-gradient(-45deg,#0000 calc(25%/3), #eeeeee 0 calc(50%/3),
+  #0000 0 calc(250%/3), #eeeeee 0 calc(275%/3),
+  #0000 0),linear-gradient(-45deg,#eeeeee calc(25%/3), #0000 0 calc(50%/3),
+  #eeeeee 0 25%, #0000 0 75%,
+  #eeeeee 0 calc(250%/3), #0000 0 calc(275%/3),
+  #eeeeee 0)
+  #4b3775;
+background-size: 64px 64px;
+background-position: 0 0, 32px  32px;
+
+;
+}
+
+[class*="btn-glitch-"] {
+  display: inline-block;
+  font-family: "VT323", monospace;
+  border: 1px solid rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+  padding: 10px 13px;
+  min-width: 175px;
+  line-height: 1.5em;
+  white-space: no-wrap;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 15px;
+
+  .text,
+  .decoration {
+    display: inline-block;
+  }
+
+  .decoration {
+    display: inline-block;
+    float: right;
+  }
+
+  &:hover,
+  &:focus {
+    animation-name: glitch;
+    animation-duration: 0.2s;
+    background-color: #D4BEE4;
+    color: black;
+    border: 1px solid #D4BEE4;
+
+    .text-decoration {
+      animation-name: blink;
+      animation-duration: 0.1s;
+      animation-iteration-count: infinite;
+    }
+
+    .decoration {
+      animation-name: blink;
+      animation-duration: 0.1s;
+      animation-iteration-count: infinite;
+    }
+  }
+
+  &:active {
+    background: none;
+    color: #D4BEE4;
+
+    .text-decoration {
+      animation-name: none;
+    }
+
+    .decoration {
+      animation-name: none;
+    }
+
+    :before,
+    :after {
+      display: none;
+    }
+  }
+}
+
+@keyframes glitch {
+  25% {
+    background-color: red;
+    transform: translateX(-10px);
+    letter-spacing: 10px;
+  }
+
+  35% {
+    background-color: green;
+    transform: translate(10px);
+  }
+
+  59% {
+    opacity: 0;
+  }
+
+  60% {
+    background-color: blue;
+    transform: translate(-10px);
+    filter: blur(5px);
+  }
+
+  100% {
+    background-color: #D4BEE4;
+    blur: (5px);
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes shrink {
+  100% {
+    width: 10%;
+  }
+}
+
+.welcome-btn-sub{
+
+  background-color: #f3f3f336;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 20vw;
+}
+
+.login-btns{
+  background-color: #feffffae;
+  color: #0fb9b9;
+  margin-bottom: 20px;
+  
+}
+/* Welcome page end  */
+
+
+/* form start */
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 350px;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  background-color: #1a1a1ae0;
+  color: #fff;
+  border: 1px solid #333;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  color: #7E60BF;
+}
+
+.title::before {
+  width: 18px;
+  height: 18px;
+}
+
+.title::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
+
+.title::before,
+.title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: #7E60BF;
+}
+
+.message, 
+.signin {
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.signin {
+  text-align: center;
+}
+
+.signin a:hover {
+  text-decoration: underline 7E60BF;
+}
+
+.signin a {
+  color: #7E60BF;
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+  gap: 6px;
+}
+
+.form label {
+  position: relative;
+}
+
+.form label .input {
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+  padding: 20px 05px 05px 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
+}
+
+.form label .input + span {
+  color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+  top: 12.5px;
+  font-size: 0.9em;
+}
+
+.form label .input:focus + span,
+.form label .input:valid + span {
+  color: #7E60BF;
+  top: 0px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.input {
+  font-size: medium;
+}
+
+.submit {
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: .3s ease;
+  background-color: #7E60BF;
+}
+
+.submit:hover {
+  background-color: #5f2dca;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* form End */
+
+
+.icon-btn {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #cdcdcd;
+  background: white;
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+  transition: width 0.2s ease-in-out;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+.add-btn:hover {
+  width: 120px;
+}
+
+.add-btn::before,
+.add-btn::after {
+  transition: width 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 10px;
+  top: calc(50% - 2px);
+  background: #7E60BF;
+}
+
+.add-btn::after {
+  right: 14px;
+  overflow: hidden;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.add-btn::before {
+  left: 14px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.icon-btn:focus {
+  outline: none;
+}
+
+.btn-txt {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.add-btn:hover::before,
+.add-btn:hover::after {
+  width: 4px;
+  border-radius: 2px;
+}
+
+.add-btn:hover .btn-txt {
+  opacity: 1;
+}
+
+.add-icon::after,
+.add-icon::before {
+  transition: all 0.2s ease-in-out;
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 2px;
+  top: calc(50% - 10px);
+  background: #7E60BF;
+  overflow: hidden;
+}
+
+.add-icon::before {
+  left: 22px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.add-icon::after {
+  right: 22px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.add-btn:hover .add-icon::before {
+  left: 15px;
+  height: 4px;
+  top: calc(50% - 2px);
+}
+
+.add-btn:hover .add-icon::after {
+  right: 15px;
+  height: 4px;
+  top: calc(50% - 2px);
+}
+
+  .add-note-btn-main{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+  }
+
+  /* Start user Profile  */
+
+  /* From Uiverse.io by gharsh11032000 */ 
+.profile-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 320px;
+  border-radius: 24px;
+  line-height: 1.6;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 36px;
+  border-radius: 22px;
+  color: #ffffff;
+  overflow: hidden;
+  background: var(--border-color);
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.content::before {
+  position: absolute;
+  content: "";
+  top: -4%;
+  left: 50%;
+  width: 90%;
+  height: 90%;
+  transform: translate(-50%);
+  background: #ced8ff;
+  z-index: -1;
+  transform-origin: bottom;
+
+  border-radius: inherit;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.content::after {
+  position: absolute;
+  content: "";
+  top: -8%;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  transform: translate(-50%);
+  background: #e7ecff;
+  z-index: -2;
+  transform-origin: bottom;
+  border-radius: inherit;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.content svg {
+  width: 48px;
+  height: 48px;
+}
+
+.content .para {
+  z-index: 1;
+  opacity: 1;
+  font-size: 18px;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.content .link {
+  z-index: 1;
+  color: #fea000;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 16px;
+  transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.content .link:hover {
+  text-decoration: underline;
+}
+
+.profile-card:hover {
+  transform: translate(0px, -16px);
+}
+
+.profile-card:hover .content::before {
+  rotate: -8deg;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.profile-card:hover .content::after {
+  rotate: 8deg;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.UserProfile-edit-btn {
+  font-size: 17px;
+  padding: 1em 2.7em;
+  font-weight: 500;
+  background: #1f2937;
+  color: white;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.6em;
+  cursor: pointer;
+  height: 50%;
+  
+}
+
+.UserProfile-gradient {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 0.6em;
+  margin-top: -0.25em;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.3)
+  );
+}
+
+.UserProfile-label {
+  position: relative;
+  top: -1px;
+}
+
+.UserProfile-transition {
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-duration: 500ms;
+  background-color: rgba(93, 250, 198, 0.6);
+  border-radius: 9999px;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.UserProfile-edit-btn:hover .UserProfile-transition {
+  width: 14em;
+  height: 14em;
+}
+
+.UserProfile-edit-btn:active {
+  transform: scale(0.97);
+}
+/* END user Profile  */
+
+/* Change Password */
+
+.update-Password-form {
+  --input-focus: #2d8cf0;
+  --font-color: #323232;
+  --font-color-sub: #666;
+  --bg-color: #fff;
+  --main-color: #323232;
+  padding: 20px;
+  background: #7e60bf94;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  box-shadow: 4px 4px var(--main-color);
+}
+
+.update-Password-title {
+  color: var(--font-color);
+  font-weight: 900;
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+.update-Password-title span {
+  color: var(--font-color-sub);
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.update-Password-input {
+  width: 250px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--font-color);
+  padding: 5px 10px;
+  outline: none;
+}
+
+.update-Password-input::placeholder {
+  color: var(--font-color-sub);
+  opacity: 0.8;
+}
+
+.update-Password-input:focus {
+  border: 2px solid var(--input-focus);
+}
+
+.update-Password-login-with {
+  display: flex;
+  gap: 20px;
+}
+
+.update-Password-button-log {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  color: var(--font-color);
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.update-Password-icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--main-color);
+}
+
+.update-Password-button-log:active, .update-Password-button-confirm:active {
+  box-shadow: 0px 0px var(--main-color);
+  transform: translate(3px, 3px);
+}
+
+.update-Password-ybutton-confirm {
+  margin: 50px auto 0 auto;
+  width: 120px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--font-color);
+  cursor: pointer;
+}
+
+
+/* end ChangePassword */
+  /* From Uiverse.io by SchawnnahJ */ 
+.loader {
+  position: relative;
+  width: 2.5em;
+  height: 2.5em;
+  transform: rotate(165deg);
+ }
+ 
+ .loader:before, .loader:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 0.25em;
+  transform: translate(-50%, -50%);
+ }
+ 
+ .loader:before {
+  animation: before8 2s infinite;
+ }
+ 
+ .loader:after {
+  animation: after6 2s infinite;
+ }
+ 
+ @keyframes before8 {
+  0% {
+   width: 0.5em;
+   box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(255, 255, 255, 0.75);
+  }
+ 
+  35% {
+   width: 2.5em;
+   box-shadow: 0 -0.5em rgba(225, 20, 98, 0.75), 0 0.5em rgba(255, 255, 255, 0.75);
+  }
+ 
+  70% {
+   width: 0.5em;
+   box-shadow: -1em -0.5em rgba(225, 20, 98, 0.75), 1em 0.5em rgba(255, 255, 255, 0.75);
+  }
+ 
+  100% {
+   box-shadow: 1em -0.5em rgba(225, 20, 98, 0.75), -1em 0.5em rgba(255, 255, 255, 0.75);
+  }
+ }
+ 
+ @keyframes after6 {
+  0% {
+   height: 0.5em;
+   box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em#7e60bf;
+  }
+ 
+  35% {
+   height: 2.5em;
+   box-shadow: 0.5em 0 rgba(61, 184, 143, 0.75), -0.5em 0 #7e60bf;
+  }
+ 
+  70% {
+   height: 0.5em;
+   box-shadow: 0.5em -1em rgba(61, 184, 143, 0.75), -0.5em 1em#7e60bf;
+  }
+ 
+  100% {
+   box-shadow: 0.5em 1em rgba(61, 184, 143, 0.75), -0.5em -1em #7e60bf;
+  }
+ }
+ 
+ .loader {
+  position: absolute;
+  top: calc(50% - 1.25em);
+  left: calc(50% - 1.25em);
+ }
+
+/* التأثيرات الأساسية للأيقونات */
+.icons-complete {
+  transition: transform 0.2s ease, color 0.2s ease; /* تأثير انتقال لتكبير الأيقونة وتغيير اللون */
+  color: #7e60bf; /* لون الأيقونات الأساسي */
+}
+
+/* التأثيرات عند وضع الماوس على الأيقونات */
+.icons-complete:hover {
+  color: #15B392; /* تغيير لون الأيقونة عند تمرير الماوس */
+  transform: scale(1.2); /* تكبير الأيقونة عند تمرير الماوس */
+}
+
+/* إضافة تأثير الظل */
+.icons-complete:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* إضافة ظل للأيقونة عند تمرير الماوس */
+}
+
+.icons-delete {
+  transition: transform 0.2s ease, color 0.2s ease; /* تأثير انتقال لتكبير الأيقونة وتغيير اللون */
+  color: #7e60bf; /* لون الأيقونات الأساسي */
+}
+
+/* التأثيرات عند وضع الماوس على الأيقونات */
+.icons-delete:hover {
+  color: #b31515; /* تغيير لون الأيقونة عند تمرير الماوس */
+  transform: scale(1.2); /* تكبير الأيقونة عند تمرير الماوس */
+}
+
+/* إضافة تأثير الظل */
+.icons-delete:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* إضافة ظل للأيقونة عند تمرير الماوس */
+}
+
+.icons-edit {
+  transition: transform 0.2s ease, color 0.2s ease; /* تأثير انتقال لتكبير الأيقونة وتغيير اللون */
+  color: #7e60bf; /* لون الأيقونات الأساسي */
+}
+
+/* التأثيرات عند وضع الماوس على الأيقونات */
+.icons-edit:hover {
+  color: #5c5959; /* تغيير لون الأيقونة عند تمرير الماوس */
+  transform: scale(1.2); /* تكبير الأيقونة عند تمرير الماوس */
+}
+
+/* إضافة تأثير الظل */
+.icons-edit:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* إضافة ظل للأيقونة عند تمرير الماوس */
+}
+
+.Update-model{
+
+  background-color: #b90f8321;
+
 }
