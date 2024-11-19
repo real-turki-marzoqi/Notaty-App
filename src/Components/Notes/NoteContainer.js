@@ -18,6 +18,12 @@ import Loader from "../utils/Loader";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
+//images
+
+import done_togglle from '../../Images/seymbols/done_all_24dp_11E1B4_FILL0_wght400_GRAD0_opsz24.png'
+import all from '../../Images/seymbols/rule_24dp_11E1B4_FILL0_wght400_GRAD0_opsz24.png'
+import pending_toggle from '../../Images/seymbols/avg_pace_24dp_11E1B4_FILL0_wght400_GRAD0_opsz24.png'
+
 const NoteContainer = () => {
   const [allNotes, setAllNotes] = useState([]);
   const [completedNotes, setCompletedNotes] = useState([]);
@@ -114,7 +120,7 @@ const NoteContainer = () => {
       >
         <Tab
           eventKey="All"
-          title={<i className="fa-solid fa-list-check toggle-btn"></i>}
+          title={<i className="fa-solid fa-list-check toggle-btn"></i> ||  <img style={{width:"20px"}} src={all}/>} 
         >
           <Container>
             {Array.isArray(allNotes) && allNotes.length > 0 ? (
@@ -135,7 +141,7 @@ const NoteContainer = () => {
 
         <Tab
           eventKey="Done"
-          title={<i className="fa-solid fa-check-double toggle-btn"></i>}
+          title={<i className="fa-solid fa-check-double toggle-btn"></i>||  <img style={{width:"20px"}} src={done_togglle}/>}
         >
           <Container>
             {Array.isArray(completedNotes) && completedNotes.length > 0 ? (
@@ -156,7 +162,7 @@ const NoteContainer = () => {
 
         <Tab
           eventKey="NoneCompleted"
-          title={<i className="fa-solid fa-hourglass toggle-btn"></i>}
+          title={<i className="fa-solid fa-hourglass toggle-btn"></i> || <img style={{width:"20px"}} src={pending_toggle}/>}
         >
           <Container>
             {Array.isArray(pendingNotes) && pendingNotes.length > 0 ? (
