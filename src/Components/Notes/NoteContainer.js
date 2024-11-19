@@ -120,8 +120,15 @@ const NoteContainer = () => {
       >
         <Tab
           eventKey="All"
-          title={<i className="fa-solid fa-list-check toggle-btn"></i> ||  <img style={{width:"20px"}} src={all}/>} 
+        
+
+          title={
+            <i className="fa-solid fa-list-check toggle-btn"></i> || (
+              <img style={{ width: "20px" }} src={all} alt="all" />
+            )
+          }
         >
+
           <Container>
             {Array.isArray(allNotes) && allNotes.length > 0 ? (
               allNotes.map((note) => (
@@ -141,7 +148,11 @@ const NoteContainer = () => {
 
         <Tab
           eventKey="Done"
-          title={<i className="fa-solid fa-check-double toggle-btn"></i>||  <img style={{width:"20px"}} src={done_togglle}/>}
+          title={
+            <i className="fa-solid fa-check-double toggle-btn"></i> || (
+              <img style={{ width: "20px" }} src={done_togglle} alt="Done" />
+            )
+          }
         >
           <Container>
             {Array.isArray(completedNotes) && completedNotes.length > 0 ? (
@@ -162,7 +173,12 @@ const NoteContainer = () => {
 
         <Tab
           eventKey="NoneCompleted"
-          title={<i className="fa-solid fa-hourglass toggle-btn"></i> || <img style={{width:"20px"}} src={pending_toggle}/>}
+          title={
+            <i className="fa-solid fa-hourglass toggle-btn"></i> || (
+              <img style={{ width: "20px" }} src={pending_toggle} alt="Pending" />
+            )
+          }
+          
         >
           <Container>
             {Array.isArray(pendingNotes) && pendingNotes.length > 0 ? (
